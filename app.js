@@ -1,5 +1,5 @@
 var json = `{
-    "shows": [{
+    "shows" : [{
         "title": "House of Cards",
         "year": "2013–",
         "description": "A Congressman works with his equally conniving wife to exact revenge on the people who betrayed him.",
@@ -149,12 +149,13 @@ var json = `{
     }]
 }`;
 
+
 var obj = JSON.parse(json);
 
 const showData=obj["shows"];
 
-function myFunction(){
-    var input, filter,ul,li,i,a,txt;
+function mySearchFunction(){
+    let input, filter,ul,li,i,a,txt;
     input=document.getElementById("my-search");
     console.log(input);
     filter=input.value.toUpperCase();
@@ -178,19 +179,25 @@ function myFunction(){
 }
 
 
-function showTemplate(show) {
+function showTemplate(show) 
+{
     return `<li class="flex-item">
-        <article>
-            <img src="./img/posters/${show.poster}">
-            <h3 id="title1">${show.title}</h3>
-            <h4>(${show.year} )</h4>
-            <p>${show.description}</p>
+        <article id="showContent">
+            <img id="showImage" src="./img/posters/${show.poster}">
+            <h3 id="showTitle">${show.title}</h3>
+            <h4 id="releaseYear">(${show.year} )</h4>
+            <p class="showDescription">${show.description}</p>
         </article>
     </li>`;
   }
 
 
-document.getElementById("anm").innerHTML=`<ul id="myul" class="flex-container">
+//adding a better naming for the id of search element
+document.getElementById("entireContent").innerHTML=`<ul id="myul" class="flex-container">
 ${showData.map(showTemplate).join("")}
 </ul>`;
 
+
+//adding event handler in the javascript file
+let searchKey=document.getElementById("my-search");
+searchKey.addEventListener("keyup",mySearchFunction);
