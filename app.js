@@ -154,7 +154,6 @@ let objectFromJson = JSON.parse(jsonText);
 
 const showData=objectFromJson["shows"];
 
-
 function showTemplate(show) 
 {
     return `<li class="flex-item">
@@ -175,16 +174,13 @@ ${showData.map(showTemplate).join("")}
 
 
 //adding event handler in the javascript file
-// let searchKey=document.getElementsByClassName("my-input")[0];
-// searchKey.addEventListener("input",searchShows);
-
-
 let searchKey=document.getElementsByClassName("my-input")[0];
 
-searchKey.oninput =() => {
+
+searchKey.oninput=() => {
     let inputText, filteredText, ulElementData, liElementData, idx, aElementData, eachShowTitle;
 
-    inputText = document.getElementById("my-search");
+    inputText = document.getElementsByClassName("my-input")[0];
     // console.log(input);
     filteredText = inputText.value.toUpperCase();
     ulElementData = document.getElementById("myul");

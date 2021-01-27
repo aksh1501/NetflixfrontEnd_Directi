@@ -1,5 +1,4 @@
 @import url('https://fonts.googleapis.com/css2?family=Oswald&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Oswald&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Oswald&family=Roboto+Condensed:ital,wght@1,700&display=swap');
 
 
@@ -40,8 +39,6 @@ body{
 .showContent{
     width: 421px;
     border: 2px solid #000;
-    padding: 0px;
-    margin: 0px;
     height:400px
 }
 
@@ -59,8 +56,6 @@ body{
     display: flex;
     flex-flow: row wrap;
     justify-content: space-around;
-    padding : 0px;
-    margin : 0px;
     list-style : none;
 }
 
@@ -78,7 +73,6 @@ body{
     font-family: "Oswald", sans-serif;
     font-weight: 300;
     display: inline;
-    margin: 0px;
     text-align: left;
     color:rgb(206, 9, 224);
 }
@@ -92,7 +86,6 @@ body{
     position:fixed; 
     left: 0;
     right: 0;
-    /* z-index: -1; */
     display:inline-block;
     background-image: url('./img/3.jpg');
     width: 100%;
