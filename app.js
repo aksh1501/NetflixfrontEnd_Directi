@@ -1,4 +1,4 @@
-var json = `{
+let jsonText = `{
     "shows" : [{
         "title": "House of Cards",
         "year": "2013–",
@@ -150,42 +150,18 @@ var json = `{
 }`;
 
 
-var obj = JSON.parse(json);
+let objectFromJson = JSON.parse(jsonText);
 
-const showData=obj["shows"];
-
-function mySearchFunction(){
-    let input, filter,ul,li,i,a,txt;
-    input=document.getElementById("my-search");
-    console.log(input);
-    filter=input.value.toUpperCase();
-    ul=document.getElementById("myul");
-    li=ul.getElementsByTagName("li");
-
-    for(i=0;i<li.length;i++)
-    {
-        a=li[i].getElementsByTagName("h3")[0];
-        txt=a.textContent||a.innerText;
-        console.log(a);
-        console.log(txt);
-        if(txt.toUpperCase().indexOf(filter)> -1)
-        {
-            li[i].style.display="";
-        }
-        else{
-            li[i].style.display="none";
-        }
-    }
-}
+const showData=objectFromJson["shows"];
 
 
 function showTemplate(show) 
 {
     return `<li class="flex-item">
-        <article id="showContent">
-            <img id="showImage" src="./img/posters/${show.poster}">
-            <h3 id="showTitle">${show.title}</h3>
-            <h4 id="releaseYear">(${show.year} )</h4>
+        <article class="showContent">
+            <img class="showImage" src="./img/posters/${show.poster}">
+            <h3 class="showTitle">${show.title}</h3>
+            <h4 class="releaseYear">(${show.year} )</h4>
             <p class="showDescription">${show.description}</p>
         </article>
     </li>`;
@@ -199,5 +175,30 @@ ${showData.map(showTemplate).join("")}
 
 
 //adding event handler in the javascript file
-let searchKey=document.getElementById("my-search");
-searchKey.addEventListener("keyup",mySearchFunction);
+// let searchKey=document.getElementsByClassName("my-input")[0];
+// searchKey.addEventListener("input",searchShows);
+
+
+let searchKey=document.getElementsByClassName("my-input")[0];
+
+searchKey.oninput =() => {
+    let inputText, filteredText, ulElementData, liElementData, idx, aElementData, eachShowTitle;
+
+    inputText = document.getElementById("my-search");
+    // console.log(input);
+    filteredText = inputText.value.toUpperCase();
+    ulElementData = document.getElementById("myul");
+    liElementData = ulElementData.getElementsByTagName("li");
+
+    for (idx = 0; idx < liElementData.length; idx++) {
+        aElementData = liElementData[idx].getElementsByTagName("h3")[0];
+        eachShowTitle = aElementData.textContent || aElementData.innerText;
+
+        if (eachShowTitle.toUpperCase().indexOf(filteredText) > -1) {
+            liElementData[idx].style.display = "";
+        }
+        else {
+            liElementData[idx].style.display = "none";
+        }
+    }
+}
