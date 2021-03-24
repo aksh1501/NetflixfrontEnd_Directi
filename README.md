@@ -1,3 +1,3 @@
 # Assignment1_old 
-This is the old code with inappropriate coding practices.
+This is week1 work.
 Netflix 2.0
